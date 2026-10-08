@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Richman Cab and Hire">
+  <defs>
+    <linearGradient id="richman-badge" x1="10" y1="4" x2="54" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FB923C"/>
+      <stop offset="1" stop-color="#EA580C"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="32" fill="url(#richman-badge)"/>
+  <rect x="25" y="12" width="14" height="6" rx="1.2" fill="#fff"/>
+  <rect x="26.2" y="13.2" width="2" height="3.6" fill="#EA580C"/>
+  <rect x="29" y="13.2" width="2" height="3.6" fill="#EA580C"/>
+  <rect x="31.8" y="13.2" width="2" height="3.6" fill="#EA580C"/>
+  <rect x="34.6" y="13.2" width="2" height="3.6" fill="#EA580C"/>
+  <path d="M12 42c1-6 4.5-12 9-15.5C24 24 27.5 22.5 32 22.5s8 1.5 11 4c4.5 3.5 8 9.5 9 15.5H12Z" fill="#fff"/>
+  <path d="M18 33c2.5-4 6.5-6.5 14-6.5s11.5 2.5 14 6.5H18Z" fill="#EA580C"/>
+  <rect x="14" y="36" width="4" height="3" rx="0.8" fill="#fff"/>
+  <rect x="46" y="36" width="4" height="3" rx="0.8" fill="#fff"/>
+  <ellipse cx="20" cy="40" rx="2.8" ry="2" fill="#EA580C"/>
+  <ellipse cx="44" cy="40" rx="2.8" ry="2" fill="#EA580C"/>
+  <rect x="26" y="38" width="12" height="4.5" rx="1" fill="#EA580C"/>
+  <rect x="15" y="44" width="34" height="3" rx="1" fill="#fff"/>
+</svg>

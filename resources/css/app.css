@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 45 100% 98%;
+        --foreground: 30 10% 15%;
+        --card: 0 0% 100%;
+        --card-foreground: 30 10% 15%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 30 10% 15%;
+        --primary: 25 95% 53%;
+        --primary-foreground: 0 0% 98%;
+        --secondary: 35 25% 85%;
+        --secondary-foreground: 30 10% 15%;
+        --muted: 35 15% 92%;
+        --muted-foreground: 30 8% 45%;
+        --accent: 15 85% 60%;
+        --accent-foreground: 0 0% 98%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 35 20% 88%;
+        --input: 35 20% 88%;
+        --ring: 25 95% 53%;
+        --radius: 0.5rem;
+        --safari-earth: 25 40% 35%;
+        --safari-gold: 45 100% 50%;
+        --safari-green: 120 25% 35%;
+        --safari-sunset: 15 85% 60%;
+        --gradient-hero: linear-gradient(
+            180deg,
+            hsl(0 0% 0% / 0.45) 0%,
+            hsl(0 0% 0% / 0.35) 45%,
+            hsl(0 0% 0% / 0.6) 100%
+        );
+        --gradient-safari: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--safari-sunset)));
+        --gradient-earth: linear-gradient(180deg, hsl(var(--safari-earth)), hsl(30 20% 25%));
+    }
+
+    body {
+        @apply bg-background text-foreground antialiased;
+    }
+
+    [x-cloak] {
+        display: none !important;
+    }
+}
+
+@layer utilities {
+    .bg-gradient-hero {
+        background-image: var(--gradient-hero);
+    }
+
+    .bg-gradient-safari {
+        background-image: var(--gradient-safari);
+    }
+
+    .bg-gradient-earth {
+        background-image: var(--gradient-earth);
+    }
+
+    .text-gradient-safari {
+        @apply bg-clip-text text-transparent;
+        background-image: var(--gradient-safari);
+    }
+
+    .duration-800 {
+        transition-duration: 800ms;
+    }
+}
+
+@layer components {
+    .hero-ken-burns {
+        animation: hero-ken-burns 7s ease-out forwards;
+        will-change: transform;
+    }
+
+    .footer-cta {
+        clip-path: polygon(0 0, 100% 0, calc(100% - 18px) 100%, 0 100%);
+    }
+
+    .footer-cta:hover {
+        transform: translateY(-2px);
+    }
+
+    .footer-link {
+        @apply relative inline-block transition-colors duration-300 hover:text-primary;
+    }
+
+    .footer-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 100%;
+        height: 1px;
+        background: hsl(var(--primary));
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+    }
+
+    .footer-link:hover::after {
+        transform: scaleX(1);
+    }
+
+    .footer-marquee {
+        animation: footer-marquee 28s linear infinite;
+    }
+}
+
+@keyframes hero-ken-burns {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes footer-marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-ken-burns,
+    .footer-marquee {
+        animation: none;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
