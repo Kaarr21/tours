@@ -4,7 +4,14 @@ set -e
 cd /var/www/html
 
 php artisan config:clear
-php artisan migrate --force --no-interaction
+
+# Neon pooled connections break Laravel migrations. Prefer the direct URL when set.
+if [ -n "${DB_URL_DIRECT:-}" ]; then
+    php artisan migrate --force --no-interaction --database=pgsql_direct
+else
+    php artisan migrate --force --no-interaction
+fi
+
 php artisan storage:link --force --no-interaction 2>/dev/null || true
 php artisan config:cache
 php artisan route:cache
