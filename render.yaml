@@ -17,7 +17,9 @@ services:
       - key: APP_KEY
         sync: false
       - key: APP_URL
-        sync: false
+        value: https://tours-v1bd.onrender.com
+      - key: ASSET_URL
+        value: https://tours-v1bd.onrender.com
       - key: LOG_CHANNEL
         value: stderr
       - key: LOG_LEVEL
