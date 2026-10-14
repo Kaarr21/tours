@@ -30,7 +30,7 @@
 
         <div>
             <label for="contact-subject" class="mb-1 block text-sm font-medium text-foreground">Subject</label>
-            <input id="contact-subject" type="text" wire:model="subject" placeholder="Airport transfer, corporate cab, private hire..." class="w-full rounded-md border-border/50 bg-background shadow-sm focus:border-primary focus:ring-primary" required>
+            <input id="contact-subject" type="text" wire:model="subject" placeholder="Airport transfer, safari, VIP transport..." class="w-full rounded-md border-border/50 bg-background shadow-sm focus:border-primary focus:ring-primary" required>
             @error('subject') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
         </div>
 

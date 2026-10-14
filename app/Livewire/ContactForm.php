@@ -41,10 +41,10 @@ class ContactForm extends Component
             'message' => $this->message,
         ]);
 
-        $notifyEmail = config('richman.contact_notify_email');
+        $notifyEmails = config('richman.contact_notify_emails');
 
-        if ($notifyEmail) {
-            Mail::to($notifyEmail)->send(new ContactMessageReceived($contact));
+        if ($notifyEmails) {
+            Mail::to($notifyEmails)->send(new ContactMessageReceived($contact));
         }
 
         $this->reset();

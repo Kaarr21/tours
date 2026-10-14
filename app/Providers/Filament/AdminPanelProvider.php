@@ -28,7 +28,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
-            ->brandName('Richman Cab & Hire')
+            ->brandName('City Cab and Taxi Services')
             ->colors([
                 'primary' => Color::Orange,
             ])

@@ -11,7 +11,7 @@ use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 #[Layout('layouts.site')]
-#[Title('Book a Ride - Richman Cab & Hire Nairobi')]
+#[Title('Book a Ride - City Cab and Taxi Services')]
 class BookTour extends Component
 {
     #[Validate('required|string|max:100')]
@@ -53,10 +53,10 @@ class BookTour extends Component
             'status' => 'pending',
         ]);
 
-        $notifyEmail = config('richman.booking_notify_email');
+        $notifyEmails = config('richman.booking_notify_emails');
 
-        if ($notifyEmail) {
-            Mail::to($notifyEmail)->send(new BookingSubmitted($booking));
+        if ($notifyEmails) {
+            Mail::to($notifyEmails)->send(new BookingSubmitted($booking));
         }
 
         $this->reset([

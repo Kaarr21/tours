@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ $title ?? 'Richman Cab & Hire - Taxi, Cab & Private Hire in Nairobi' }}</title>
-    <meta name="description" content="{{ $description ?? 'Nairobi taxi, cab, and private hire with Richard. Airport transfers, city rides, corporate transfers, and out-of-town charters.' }}">
+    <title>{{ $title ?? 'City Cab and Taxi Services - Chauffeur-Driven Transport in Nairobi' }}</title>
+    <meta name="description" content="{{ $description ?? 'City Cab and Taxi Services — chauffeur-driven transport, airport transfers, corporate leasing, excursions, country-wide travel, safaris, and VIP transport. Open 24 hours.' }}">
     <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
     <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
     <link rel="icon" href="{{ asset('favicon-32x32.png') }}" type="image/png" sizes="32x32">

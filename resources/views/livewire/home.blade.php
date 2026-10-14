@@ -59,21 +59,21 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 animate-pulse text-primary drop-shadow">
                     <path fill-rule="evenodd" d="M9.69 18.933l.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 0 0 .281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 15.278 17 12.907 17 10a7 7 0 1 0-14 0c0 2.907 1.698 5.278 3.353 6.584a13.66 13.66 0 0 0 2.274 1.765 11.842 11.842 0 0 0 .976.544l.062.029.018.008.006.003ZM10 11.25a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5Z" clip-rule="evenodd" />
                 </svg>
-                Nairobi taxi, cab &amp; private hire
+                Chauffeur-driven · Open 24 hours
             </p>
 
             <h1
                 class="max-w-4xl text-4xl font-bold tracking-tight [text-shadow:0_2px_16px_rgba(0,0,0,0.55)] transition-all delay-150 duration-800 ease-out sm:text-5xl md:text-6xl"
                 :class="ready ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
             >
-                Safe, on-time rides across <span class="text-primary">Nairobi</span>
+                Safe, on-time rides across <span class="text-primary">Nairobi</span> and the country
             </h1>
 
             <p
                 class="mt-6 max-w-2xl text-base text-white/95 [text-shadow:0_1px_10px_rgba(0,0,0,0.55)] transition-all delay-300 duration-800 ease-out sm:text-lg"
                 :class="ready ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
             >
-                Richman Cab &amp; Hire — your trusted local driver for airport transfers, city cabs, corporate runs, and private hire. Call or book online for comfortable, professional service with Richard.
+                City Cab and Taxi Services — chauffeur-driven airport transfers, corporate leasing, excursions, safaris, and VIP transport country-wide. Call or book online for comfortable, professional service with Richard.
             </p>
 
             <div
@@ -151,19 +151,19 @@
                 :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'"
             >
                 <h2 class="text-4xl font-bold text-foreground md:text-5xl">
-                    Why choose <span class="text-gradient-safari">Richman?</span>
+                    Why choose <span class="text-gradient-safari">City Cab?</span>
                 </h2>
                 <p class="mt-4 text-lg text-muted-foreground">
-                    Based in Nairobi with 20+ years behind the wheel, Richard delivers dependable taxi, cab, and private hire service — clear pricing, clean vehicles, and drivers who know the city roads.
+                    Based in Nairobi with 20+ years behind the wheel, Richard delivers dependable chauffeur-driven transport — clear pricing, clean vehicles, and drivers who know the city roads. Open 24 hours.
                 </p>
             </div>
 
             <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 @foreach ([
                     ['title' => 'Nairobi Road Knowledge', 'body' => 'Local routes, traffic shortcuts, and estate access so you arrive on time.'],
-                    ['title' => 'Licensed & Experienced', 'body' => 'Professional drivers with years of safe city and highway driving.'],
-                    ['title' => 'Private & Comfortable', 'body' => 'Clean 7-seater+ vehicles for families, executives, and small groups.'],
-                    ['title' => 'Flexible Hire', 'body' => 'One-way rides, wait-and-return, hourly hire, or full-day private charter.'],
+                    ['title' => 'Licensed & Experienced', 'body' => 'Professional chauffeurs with years of safe city and highway driving.'],
+                    ['title' => 'Comfortable Fleet', 'body' => 'Clean MPV and passenger vans for families, executives, and groups.'],
+                    ['title' => 'Open 24 Hours', 'body' => 'Early flights, late arrivals, and same-day transfers — available around the clock.'],
                 ] as $i => $card)
                     <div
                         class="rounded-xl border border-border/50 bg-card p-6 shadow-sm transition-all duration-700 ease-out hover:-translate-y-2 hover:border-primary/30 hover:shadow-lg"
@@ -210,7 +210,7 @@
                     Travel solutions for <span class="text-gradient-safari">every journey</span>
                 </h2>
                 <p class="mt-4 text-lg text-muted-foreground">
-                    Airport pickups, corporate travel, private journeys, and more — booked around your schedule.
+                    Chauffeur-driven transport, airport transfers, corporate leasing, excursions, safaris, and VIP travel — open 24 hours.
                 </p>
             </div>
 
@@ -238,7 +238,7 @@
             >
                 <p class="mb-4 text-muted-foreground">Need a custom route or multi-stop day? Tell us where you need to go.</p>
                 <a href="{{ route('book-tour') }}" class="inline-flex rounded-md border border-primary px-6 py-3 font-semibold text-primary transition duration-300 hover:-translate-y-0.5 hover:bg-primary hover:text-primary-foreground hover:shadow-md">
-                    Request a Private Hire
+                    Book a Chauffeur
                 </a>
             </div>
         </div>
@@ -268,10 +268,10 @@
             >
                 <p class="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary">Our fleet</p>
                 <h2 class="text-4xl font-bold text-foreground md:text-5xl">
-                    Travel in spacious <span class="text-gradient-safari">7-seaters+</span>
+                    Travel in spacious <span class="text-gradient-safari">comfort</span>
                 </h2>
                 <p class="mt-4 text-lg text-muted-foreground">
-                    Comfortable, well-kept vehicles sized for families, corporate groups, and luggage-heavy airport runs.
+                    Comfortable, well-kept vehicles sized for families, corporate groups, safaris, and luggage-heavy airport runs.
                 </p>
             </div>
 
@@ -341,7 +341,7 @@
             >
                 <h2 class="text-4xl font-bold text-foreground md:text-5xl">Book Your Ride Today</h2>
                 <p class="mt-4 text-lg text-muted-foreground">
-                    Airport transfer, city cab, or private hire anywhere in Nairobi and beyond? Send a message — we typically reply within 2 hours.
+                    Airport transfer, safari, or VIP transport anywhere in Nairobi and beyond? Send a message — we typically reply within 2 hours. Open 24 hours.
                 </p>
             </div>
 
@@ -356,9 +356,9 @@
                 <div class="space-y-4">
                     @foreach ([
                         ['title' => 'Phone / WhatsApp', 'details' => [config('richman.phone')], 'subtitle' => 'Fastest way to confirm a ride'],
-                        ['title' => 'Email', 'details' => [config('richman.email')], 'subtitle' => 'Quotes and booking details'],
+                        ['title' => 'Email', 'details' => config('richman.emails'), 'subtitle' => 'Quotes and booking details'],
                         ['title' => 'Base', 'details' => [config('richman.location'), config('richman.location_detail')], 'subtitle' => 'Pickups across Nairobi'],
-                        ['title' => 'Hours', 'details' => ['24/7 on request', 'Advance booking preferred'], 'subtitle' => 'Early mornings & late flights welcome'],
+                        ['title' => 'Hours', 'details' => ['Open 24 hours', 'Advance booking preferred'], 'subtitle' => 'Early mornings & late flights welcome'],
                     ] as $i => $info)
                         <div
                             class="rounded-xl border border-border/50 bg-card p-5 shadow-sm transition-all duration-700 ease-out hover:-translate-y-1 hover:border-primary/30 hover:shadow-md"

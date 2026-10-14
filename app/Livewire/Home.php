@@ -7,7 +7,7 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 
 #[Layout('layouts.site')]
-#[Title('Richman Cab & Hire - Taxi, Cab & Private Hire in Nairobi')]
+#[Title('City Cab and Taxi Services - Chauffeur-Driven Transport in Nairobi')]
 class Home extends Component
 {
     public function render()
@@ -28,56 +28,56 @@ class Home extends Component
                     'best_for' => 'Airport & family',
                 ],
                 [
-                    'name' => 'Toyota Prado',
+                    'name' => 'Toyota Wish',
                     'seats' => '7 seats',
-                    'image' => 'images/fleet/prado.jpg',
-                    'body' => 'Capable SUV comfort for corporate collections, estate roads, and longer highway trips across Kenya.',
-                    'best_for' => 'Corporate & highway',
+                    'image' => 'images/fleet/toyota-wish.jpg',
+                    'body' => 'Comfortable city and airport MPV for chauffeur-driven rides, corporate collections, and everyday transfers.',
+                    'best_for' => 'City & transfers',
                 ],
                 [
                     'name' => 'Executive MPV',
                     'seats' => '7 seats',
                     'image' => 'images/fleet/alphard.jpg',
-                    'body' => 'Premium private hire for executives, hotel transfers, and guests who want a quieter, refined ride.',
-                    'best_for' => 'Private & VIP',
+                    'body' => 'Premium chauffeur-driven comfort for executives, hotel transfers, and guests who want a quieter, refined ride.',
+                    'best_for' => 'VIP & corporate',
                 ],
                 [
-                    'name' => 'Land Cruiser',
-                    'seats' => '7+ seats',
-                    'image' => 'images/fleet/land-cruiser.jpg',
-                    'body' => 'Built for out-of-town charters, safari-style roads, and groups that need extra space and confidence.',
-                    'best_for' => 'Out-of-town',
+                    'name' => 'Nissan Passenger Van',
+                    'seats' => '14+ seats',
+                    'image' => 'images/fleet/nissan-van.jpg',
+                    'body' => 'High-roof group transport for safaris, excursions, corporate shuttles, and country-wide trips with room for luggage.',
+                    'best_for' => 'Groups & safaris',
                 ],
             ],
             'services' => [
                 [
-                    'title' => 'Airport Pickups',
+                    'title' => 'Chauffeur-Driven',
+                    'body' => 'Professional drivers on demand for city rides, meetings, and day-long itineraries — open 24 hours.',
+                    'icon' => 'key',
+                ],
+                [
+                    'title' => 'Airport Transfers',
                     'body' => 'JKIA and Wilson Airport meet-and-greet, flight tracking on request, and door-to-door drop-offs.',
                     'icon' => 'plane',
                 ],
                 [
-                    'title' => 'Corporate Travel',
-                    'body' => 'Office shuttles, client collections, and same-day business runs with professional chauffeurs.',
+                    'title' => 'Corporate Leasing',
+                    'body' => 'Dedicated chauffeur vehicles for offices, client collections, and ongoing business travel needs.',
                     'icon' => 'briefcase',
                 ],
                 [
-                    'title' => 'Private Journeys',
-                    'body' => 'Hourly or full-day hire for meetings, hospital runs, shopping days, and personal errands.',
-                    'icon' => 'key',
-                ],
-                [
-                    'title' => 'City Taxi & Cabs',
-                    'body' => 'Point-to-point rides across Nairobi: CBD, Westlands, Karen, Kilimani, Syokimau, and estates.',
+                    'title' => 'Excursions',
+                    'body' => 'Day trips and scenic outings planned around your schedule, with comfortable vehicles and local knowledge.',
                     'icon' => 'map',
                 ],
                 [
-                    'title' => 'Out-of-Town Charters',
-                    'body' => 'Intercity and countryside trips — Naivasha, Nakuru, Mombasa runs, and weekend getaways.',
+                    'title' => 'Country-Wide Transport',
+                    'body' => 'Reliable intercity and upcountry travel across Kenya — Naivasha, Nakuru, Mombasa runs, and more.',
                     'icon' => 'road',
                 ],
                 [
-                    'title' => 'Hotel & Event Transfers',
-                    'body' => 'Reliable guest collections for hotels, conferences, weddings, and evening functions.',
+                    'title' => 'Safaris & VIP Transport',
+                    'body' => 'Safari transfers and discreet VIP movements with well-kept vehicles sized for comfort and luggage.',
                     'icon' => 'calendar',
                 ],
             ],

@@ -13,14 +13,12 @@ class BookingStatusNotification extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public function __construct(public Booking $booking)
-    {
-    }
+    public function __construct(public Booking $booking) {}
 
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Update on your Richman Tours booking',
+            subject: 'Update on your City Cab and Taxi Services booking',
         );
     }
 

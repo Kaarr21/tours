@@ -3,7 +3,7 @@
         <div class="text-center">
             <h1 class="text-4xl font-bold text-foreground md:text-5xl">Book a Ride</h1>
             <p class="mt-4 text-lg text-muted-foreground">
-                Taxi, cab, or private hire in Nairobi? Share your pickup and drop-off details and we’ll confirm timing, vehicle, and fare.
+                Need a chauffeur-driven ride in Nairobi or beyond? Share your pickup and drop-off details and we’ll confirm timing, vehicle, and fare.
             </p>
         </div>
 
@@ -62,12 +62,12 @@
 
                 <div>
                     <label for="specialRequests" class="mb-1 block text-sm font-medium text-foreground">Notes</label>
-                    <textarea id="specialRequests" wire:model="specialRequests" rows="4" placeholder="Pickup time, flight number, wait-and-return, luggage, child seat, hourly hire..." class="w-full rounded-md border-border bg-background shadow-sm focus:border-primary focus:ring-primary"></textarea>
+                    <textarea id="specialRequests" wire:model="specialRequests" rows="4" placeholder="Pickup time, flight number, luggage, child seat, safari notes..." class="w-full rounded-md border-border bg-background shadow-sm focus:border-primary focus:ring-primary"></textarea>
                     @error('specialRequests') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
                 </div>
 
                 <button type="submit" class="w-full rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground transition hover:bg-primary/90" wire:loading.attr="disabled">
-                    <span wire:loading.remove wire:target="submit">Request Taxi / Private Hire</span>
+                    <span wire:loading.remove wire:target="submit">Request a Ride</span>
                     <span wire:loading wire:target="submit">Submitting...</span>
                 </button>
 

@@ -45,8 +45,8 @@
     <div class="overflow-hidden border-b border-white/10 bg-black/20 py-3" aria-hidden="true">
         <div class="footer-marquee flex w-max gap-10 whitespace-nowrap text-xs font-semibold uppercase tracking-[0.25em] text-primary/90">
             @foreach (array_merge(
-                ['Airport Pickups', 'Corporate Travel', 'Private Journeys', 'City Taxi', 'Out-of-Town Charters', 'Hotel Transfers', '7-Seater Fleet'],
-                ['Airport Pickups', 'Corporate Travel', 'Private Journeys', 'City Taxi', 'Out-of-Town Charters', 'Hotel Transfers', '7-Seater Fleet']
+                ['Chauffeur-Driven', 'Airport Transfers', 'Corporate Leasing', 'Excursions', 'Country-Wide Transport', 'Safaris', 'VIP Transport', 'Open 24 Hours'],
+                ['Chauffeur-Driven', 'Airport Transfers', 'Corporate Leasing', 'Excursions', 'Country-Wide Transport', 'Safaris', 'VIP Transport', 'Open 24 Hours']
             ) as $item)
                 <span class="inline-flex items-center gap-3">
                     <span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
@@ -63,7 +63,7 @@
         >
             <x-site.logo light />
             <p class="text-sm leading-relaxed text-white/75">
-                Nairobi taxi, cab, and private hire with a trusted local driver. Airport transfers, city rides, corporate runs, and out-of-town charters — booked around your schedule.
+                Chauffeur-driven taxi and cab services with a trusted local driver. Airport transfers, corporate leasing, excursions, safaris, and VIP transport — open 24 hours.
             </p>
         </div>
 
@@ -74,12 +74,12 @@
             <h3 class="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Working Hours</h3>
             <ul class="space-y-3 text-sm text-white/85">
                 <li>
-                    <p class="font-medium text-white">Monday – Friday</p>
-                    <p class="text-white/65">24 hours on request</p>
+                    <p class="font-medium text-white">Every day</p>
+                    <p class="text-white/65">Open 24 hours</p>
                 </li>
                 <li>
-                    <p class="font-medium text-white">Weekends</p>
-                    <p class="text-white/65">24 hours on request</p>
+                    <p class="font-medium text-white">Bookings</p>
+                    <p class="text-white/65">Advance booking preferred</p>
                 </li>
             </ul>
         </div>
@@ -111,7 +111,9 @@
                 </li>
                 <li>
                     <p class="text-xs font-semibold uppercase tracking-wide text-primary/90">Write to us</p>
-                    <a href="mailto:{{ config('richman.email') }}" class="footer-link font-medium">{{ config('richman.email') }}</a>
+                    @foreach (config('richman.emails') as $email)
+                        <a href="mailto:{{ $email }}" class="footer-link block font-medium">{{ $email }}</a>
+                    @endforeach
                 </li>
                 <li>
                     <p class="text-xs font-semibold uppercase tracking-wide text-primary/90">Call / WhatsApp</p>
@@ -123,7 +125,7 @@
 
     <div class="border-t border-white/10 bg-black/25">
         <div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4 text-sm text-white/70 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-            <p>&copy; {{ date('Y') }} Richman Cab &amp; Hire. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} City Cab and Taxi Services. All rights reserved.</p>
             <div class="flex gap-4">
                 <a href="{{ route('privacy') }}" class="footer-link">Privacy Policy</a>
                 <a href="{{ route('terms') }}" class="footer-link">Terms of Service</a>

@@ -1,5 +1,5 @@
 @php
-    $title = 'Privacy Policy - Richman Cab & Hire';
+    $title = 'Privacy Policy - City Cab and Taxi Services';
 @endphp
 
 <!DOCTYPE html>
@@ -18,13 +18,13 @@
         <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
             <h1 class="text-4xl font-bold text-foreground">Privacy Policy</h1>
             <div class="mt-8 space-y-4 text-muted-foreground">
-                <p>Richman Cab &amp; Hire ("we", "our") respects your privacy. This policy explains how we collect and use information when you book a taxi, cab, or private hire.</p>
+                <p>City Cab and Taxi Services ("we", "our") respects your privacy. This policy explains how we collect and use information when you book chauffeur-driven transport, airport transfers, and related services.</p>
                 <h2 class="pt-4 text-xl font-semibold text-foreground">Information we collect</h2>
                 <p>When you book a ride or send a message, we collect details you provide such as your name, email, phone number, pickup/destination, travel dates, and message content.</p>
                 <h2 class="pt-4 text-xl font-semibold text-foreground">How we use information</h2>
                 <p>We use your information to confirm rides, provide transportation, and improve our service. We do not sell your personal information.</p>
                 <h2 class="pt-4 text-xl font-semibold text-foreground">Contact</h2>
-                <p>Questions about this policy can be sent to {{ config('richman.email') }} or {{ config('richman.phone') }}.</p>
+                <p>Questions about this policy can be sent to {{ implode(' or ', config('richman.emails')) }} or {{ config('richman.phone') }}.</p>
             </div>
         </section>
     </main>
