@@ -6,12 +6,10 @@ use App\Mail\BookingSubmitted;
 use App\Models\Booking;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Layout;
-use Livewire\Attributes\Title;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 #[Layout('layouts.site')]
-#[Title('Book a Ride - City Cab and Taxi Services')]
 class BookTour extends Component
 {
     #[Validate('required|string|max:100')]
@@ -75,6 +73,11 @@ class BookTour extends Component
 
     public function render()
     {
-        return view('livewire.book-tour');
+        return view('livewire.book-tour')->layoutData([
+            'seoTitle' => 'Book a Ride | City Cab and Taxi Nairobi',
+            'seoDescription' => 'Request a chauffeur-driven ride in Nairobi or across Kenya. Share your destination, group size, and preferred date — City Cab confirms by call or WhatsApp.',
+            'canonicalUrl' => route('book-tour'),
+            'seoImage' => config('seo.defaults.image'),
+        ]);
     }
 }

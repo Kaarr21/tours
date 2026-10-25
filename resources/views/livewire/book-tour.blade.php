@@ -1,6 +1,9 @@
 <div class="bg-background">
     <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
         <div class="text-center">
+            <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <x-site.icon name="calendar" class="h-6 w-6" />
+            </div>
             <h1 class="text-4xl font-bold text-foreground md:text-5xl">Book a Ride</h1>
             <p class="mt-4 text-lg text-muted-foreground">
                 Need a chauffeur-driven ride in Nairobi or beyond? Share your pickup and drop-off details and we’ll confirm timing, vehicle, and fare.
@@ -8,7 +11,9 @@
         </div>
 
         <div class="mt-10 rounded-xl border border-border/50 bg-card p-6 shadow-sm sm:p-8">
-            <h2 class="text-2xl font-bold text-foreground">Ride request</h2>
+            <h2 class="inline-flex items-center gap-2 text-2xl font-bold text-foreground">
+                <x-site.icon name="truck" class="h-6 w-6 text-primary" />Ride request
+            </h2>
 
             <form wire:submit="submit" class="mt-6 space-y-5">
                 <div class="grid gap-4 sm:grid-cols-2">
@@ -66,12 +71,17 @@
                     @error('specialRequests') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
                 </div>
 
-                <button type="submit" class="w-full rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground transition hover:bg-primary/90" wire:loading.attr="disabled">
-                    <span wire:loading.remove wire:target="submit">Request a Ride</span>
-                    <span wire:loading wire:target="submit">Submitting...</span>
+                <button type="submit" class="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground transition hover:bg-primary/90" wire:loading.attr="disabled">
+                    <span wire:loading.remove wire:target="submit" class="inline-flex items-center gap-2">
+                        <x-site.icon name="paper-airplane" class="h-5 w-5" />Request a Ride
+                    </span>
+                    <span wire:loading wire:target="submit" class="inline-flex items-center gap-2">
+                        <x-site.icon name="clock" class="h-5 w-5 animate-pulse" />Submitting...
+                    </span>
                 </button>
 
-                <p class="text-center text-sm text-muted-foreground">
+                <p class="inline-flex w-full items-center justify-center gap-2 text-center text-sm text-muted-foreground">
+                    <x-site.icon name="phone" class="h-4 w-4 text-primary" />
                     Richard will confirm by call or WhatsApp within 12 hours
                 </p>
             </form>

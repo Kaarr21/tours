@@ -1,5 +1,7 @@
 <div class="rounded-xl border border-border/50 bg-card/50 p-6 shadow-sm backdrop-blur-sm sm:p-8">
-    <h3 class="text-2xl font-bold text-foreground">Send a Message</h3>
+    <h3 class="inline-flex items-center gap-2 text-2xl font-bold text-foreground">
+        <x-site.icon name="chat" class="h-6 w-6 text-primary" />Send a Message
+    </h3>
 
     <form wire:submit="submit" class="mt-6 space-y-5">
         <div class="grid gap-4 sm:grid-cols-2">
@@ -40,9 +42,13 @@
             @error('message') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
         </div>
 
-        <button type="submit" class="rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground transition hover:bg-primary/90" wire:loading.attr="disabled">
-            <span wire:loading.remove wire:target="submit">Send Message</span>
-            <span wire:loading wire:target="submit">Sending...</span>
+        <button type="submit" class="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground transition hover:bg-primary/90" wire:loading.attr="disabled">
+            <span wire:loading.remove wire:target="submit" class="inline-flex items-center gap-2">
+                <x-site.icon name="paper-airplane" class="h-5 w-5" />Send Message
+            </span>
+            <span wire:loading wire:target="submit" class="inline-flex items-center gap-2">
+                <x-site.icon name="clock" class="h-5 w-5 animate-pulse" />Sending...
+            </span>
         </button>
     </form>
 </div>

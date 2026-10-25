@@ -24,7 +24,7 @@
             </p>
 
             <a
-                href="tel:{{ preg_replace('/\s+/', '', config('richman.phone')) }}"
+                href="tel:{{ config('richman.phone_e164') }}"
                 class="footer-cta group relative inline-flex items-center gap-3 bg-primary px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition-all duration-700 ease-out hover:bg-primary/90 sm:text-base"
                 :class="shown ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'"
             >
@@ -71,15 +71,21 @@
             class="transition-all delay-100 duration-700 ease-out"
             :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
         >
-            <h3 class="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Working Hours</h3>
+            <h3 class="mb-4 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                <x-site.icon name="clock" class="h-4 w-4" />Working Hours
+            </h3>
             <ul class="space-y-3 text-sm text-white/85">
                 <li>
-                    <p class="font-medium text-white">Every day</p>
-                    <p class="text-white/65">Open 24 hours</p>
+                    <p class="inline-flex items-center gap-2 font-medium text-white">
+                        <x-site.icon name="sparkles" class="h-4 w-4 text-primary" />Every day
+                    </p>
+                    <p class="pl-6 text-white/65">Open 24 hours</p>
                 </li>
                 <li>
-                    <p class="font-medium text-white">Bookings</p>
-                    <p class="text-white/65">Advance booking preferred</p>
+                    <p class="inline-flex items-center gap-2 font-medium text-white">
+                        <x-site.icon name="calendar" class="h-4 w-4 text-primary" />Bookings
+                    </p>
+                    <p class="pl-6 text-white/65">Advance booking preferred</p>
                 </li>
             </ul>
         </div>
@@ -90,11 +96,14 @@
         >
             <h3 class="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Quick Links</h3>
             <ul class="space-y-2 text-sm text-white/85">
-                <li><a href="{{ route('home') }}" class="footer-link">Home</a></li>
-                <li><a href="{{ route('home') }}#services" class="footer-link">Services</a></li>
-                <li><a href="{{ route('home') }}#fleet" class="footer-link">Our Fleet</a></li>
-                <li><a href="{{ route('book-tour') }}" class="footer-link">Book a Ride</a></li>
-                <li><a href="{{ route('home') }}#contact" class="footer-link">Contact</a></li>
+                <li><a href="{{ route('home') }}" class="footer-link inline-flex items-center gap-2"><x-site.icon name="home" class="h-4 w-4 text-primary" />Home</a></li>
+                <li><a href="{{ route('services.airport-transfers') }}" class="footer-link inline-flex items-center gap-2"><x-site.icon name="plane" class="h-4 w-4 text-primary" />Airport Transfers</a></li>
+                <li><a href="{{ route('services.chauffeur') }}" class="footer-link inline-flex items-center gap-2"><x-site.icon name="key" class="h-4 w-4 text-primary" />Chauffeur Services</a></li>
+                <li><a href="{{ route('services.corporate') }}" class="footer-link inline-flex items-center gap-2"><x-site.icon name="briefcase" class="h-4 w-4 text-primary" />Corporate Transport</a></li>
+                <li><a href="{{ route('home') }}#fleet" class="footer-link inline-flex items-center gap-2"><x-site.icon name="truck" class="h-4 w-4 text-primary" />Our Fleet</a></li>
+                <li><a href="{{ route('faqs') }}" class="footer-link inline-flex items-center gap-2"><x-site.icon name="question" class="h-4 w-4 text-primary" />FAQs</a></li>
+                <li><a href="{{ route('book-tour') }}" class="footer-link inline-flex items-center gap-2"><x-site.icon name="calendar" class="h-4 w-4 text-primary" />Book a Ride</a></li>
+                <li><a href="{{ route('home') }}#contact" class="footer-link inline-flex items-center gap-2"><x-site.icon name="chat" class="h-4 w-4 text-primary" />Contact</a></li>
             </ul>
         </div>
 
@@ -105,19 +114,35 @@
             <h3 class="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Head Office</h3>
             <ul class="space-y-3 text-sm text-white/85">
                 <li>
-                    <p class="text-xs font-semibold uppercase tracking-wide text-primary/90">Location</p>
+                    <p class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-primary/90">
+                        <x-site.icon name="map-pin" class="h-3.5 w-3.5" />Location
+                    </p>
                     <p class="font-medium text-white">{{ config('richman.location') }}</p>
                     <p class="text-white/65">{{ config('richman.location_detail') }}</p>
                 </li>
                 <li>
-                    <p class="text-xs font-semibold uppercase tracking-wide text-primary/90">Write to us</p>
+                    <p class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-primary/90">
+                        <x-site.icon name="mail" class="h-3.5 w-3.5" />Write to us
+                    </p>
                     @foreach (config('richman.emails') as $email)
                         <a href="mailto:{{ $email }}" class="footer-link block font-medium">{{ $email }}</a>
                     @endforeach
                 </li>
                 <li>
-                    <p class="text-xs font-semibold uppercase tracking-wide text-primary/90">Call / WhatsApp</p>
-                    <a href="tel:{{ preg_replace('/\s+/', '', config('richman.phone')) }}" class="footer-link font-medium">{{ config('richman.phone') }}</a>
+                    <p class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-primary/90">
+                        <x-site.icon name="phone" class="h-3.5 w-3.5" />Call / WhatsApp
+                    </p>
+                    <a href="tel:{{ config('richman.phone_e164') }}" class="footer-link inline-flex items-center gap-1.5 font-medium">
+                        <x-site.icon name="phone" class="h-4 w-4 text-primary" />{{ config('richman.phone') }}
+                    </a>
+                    <a
+                        href="{{ config('richman.whatsapp_url') }}?text={{ rawurlencode(config('richman.whatsapp_message')) }}"
+                        class="mt-2 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-[#1ebe57]"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <x-site.whatsapp-logo class="h-4 w-4" />WhatsApp
+                    </a>
                 </li>
             </ul>
         </div>

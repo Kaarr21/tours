@@ -66,27 +66,27 @@
                 class="max-w-4xl text-4xl font-bold tracking-tight [text-shadow:0_2px_16px_rgba(0,0,0,0.55)] transition-all delay-150 duration-800 ease-out sm:text-5xl md:text-6xl"
                 :class="ready ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
             >
-                Safe, on-time rides across <span class="text-primary">Nairobi</span> and the country
+                Reliable Taxi, Chauffeur and Airport Transfer Services in <span class="text-primary">Nairobi</span>
             </h1>
 
             <p
                 class="mt-6 max-w-2xl text-base text-white/95 [text-shadow:0_1px_10px_rgba(0,0,0,0.55)] transition-all delay-300 duration-800 ease-out sm:text-lg"
                 :class="ready ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
             >
-                City Cab and Taxi Services — chauffeur-driven airport transfers, corporate leasing, excursions, safaris, and VIP transport country-wide. Call or book online for comfortable, professional service with Richard.
+                City Cab and Taxi Services provides chauffeur-driven transport for individuals, families, business travellers and groups in Nairobi and across Kenya. Explore airport transfers, private chauffeur services, corporate transport, excursions and intercity journeys.
             </p>
 
             <div
                 class="mt-8 flex flex-wrap items-center justify-center gap-4 transition-all delay-500 duration-800 ease-out"
                 :class="ready ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
             >
-                <a href="{{ route('book-tour') }}" class="group inline-flex items-center rounded-md bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition duration-300 hover:-translate-y-1 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/40">
+                <a href="{{ route('book-tour') }}" class="group inline-flex items-center gap-2 rounded-md bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition duration-300 hover:-translate-y-1 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/40">
+                    <x-site.icon name="calendar" class="h-5 w-5" />
                     Book a Ride
-                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
+                    <x-site.icon name="arrow-right" class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
-                <a href="#fleet" class="inline-flex items-center rounded-md border border-white/40 bg-white/10 px-8 py-4 text-lg font-semibold text-white backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-white/20">
+                <a href="#fleet" class="inline-flex items-center gap-2 rounded-md border border-white/40 bg-white/10 px-8 py-4 text-lg font-semibold text-white backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-white/20">
+                    <x-site.icon name="truck" class="h-5 w-5" />
                     View Our Fleet
                 </a>
             </div>
@@ -96,14 +96,17 @@
                 :class="ready ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
             >
                 <div class="text-center">
-                    <div class="text-3xl font-bold text-primary"><span x-text="passengers">0</span>+</div>
+                    <div class="mb-1 flex justify-center text-primary"><x-site.icon name="users" class="h-5 w-5" /></div>
+                    <div class="text-3xl font-bold text-primary"><span x-text="passengers">1000</span>+</div>
                     <div class="text-white/90">Happy Passengers</div>
                 </div>
                 <div class="text-center">
-                    <div class="text-3xl font-bold text-primary"><span x-text="years">0</span>+</div>
+                    <div class="mb-1 flex justify-center text-primary"><x-site.icon name="sparkles" class="h-5 w-5" /></div>
+                    <div class="text-3xl font-bold text-primary"><span x-text="years">20</span>+</div>
                     <div class="text-white/90">Years Driving</div>
                 </div>
                 <div class="text-center">
+                    <div class="mb-1 flex justify-center text-primary"><x-site.icon name="clock" class="h-5 w-5" /></div>
                     <div class="text-3xl font-bold text-primary">24/7</div>
                     <div class="text-white/90">Availability</div>
                 </div>
@@ -216,19 +219,40 @@
 
             <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 @foreach ($services as $i => $service)
-                    <article
-                        class="group rounded-xl border border-border/50 bg-card p-6 shadow-sm transition-all duration-700 ease-out hover:-translate-y-2 hover:border-primary/30 hover:shadow-lg"
-                        style="transition-delay: {{ 80 + ($i * 90) }}ms"
-                        :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'"
-                    >
-                        <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="{{ $serviceIcons[$service['icon']] ?? $serviceIcons['map'] }}" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold text-foreground">{{ $service['title'] }}</h3>
-                        <p class="mt-2 text-sm text-muted-foreground">{{ $service['body'] }}</p>
-                    </article>
+                    @php $serviceHref = ! empty($service['route']) ? route($service['route']) : null; @endphp
+                    @if ($serviceHref)
+                        <a
+                            href="{{ $serviceHref }}"
+                            class="group block rounded-xl border border-border/50 bg-card p-6 shadow-sm transition-all duration-700 ease-out hover:-translate-y-2 hover:border-primary/30 hover:shadow-lg"
+                            style="transition-delay: {{ 80 + ($i * 90) }}ms"
+                            :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'"
+                        >
+                            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="{{ $serviceIcons[$service['icon']] ?? $serviceIcons['map'] }}" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-foreground">{{ $service['title'] }}</h3>
+                            <p class="mt-2 text-sm text-muted-foreground">{{ $service['body'] }}</p>
+                            <p class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                                Learn more <x-site.icon name="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                            </p>
+                        </a>
+                    @else
+                        <article
+                            class="group rounded-xl border border-border/50 bg-card p-6 shadow-sm transition-all duration-700 ease-out hover:-translate-y-2 hover:border-primary/30 hover:shadow-lg"
+                            style="transition-delay: {{ 80 + ($i * 90) }}ms"
+                            :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'"
+                        >
+                            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="{{ $serviceIcons[$service['icon']] ?? $serviceIcons['map'] }}" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-foreground">{{ $service['title'] }}</h3>
+                            <p class="mt-2 text-sm text-muted-foreground">{{ $service['body'] }}</p>
+                        </article>
+                    @endif
                 @endforeach
             </div>
 
@@ -237,7 +261,8 @@
                 :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
             >
                 <p class="mb-4 text-muted-foreground">Need a custom route or multi-stop day? Tell us where you need to go.</p>
-                <a href="{{ route('book-tour') }}" class="inline-flex rounded-md border border-primary px-6 py-3 font-semibold text-primary transition duration-300 hover:-translate-y-0.5 hover:bg-primary hover:text-primary-foreground hover:shadow-md">
+                <a href="{{ route('book-tour') }}" class="inline-flex items-center gap-2 rounded-md border border-primary px-6 py-3 font-semibold text-primary transition duration-300 hover:-translate-y-0.5 hover:bg-primary hover:text-primary-foreground hover:shadow-md">
+                    <x-site.icon name="key" class="h-5 w-5" />
                     Book a Chauffeur
                 </a>
             </div>
@@ -290,7 +315,8 @@
                                 loading="lazy"
                             >
                             <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-4">
-                                <span class="inline-flex rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+                                <span class="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+                                    <x-site.icon name="users" class="h-3.5 w-3.5" />
                                     {{ $vehicle['seats'] }}
                                 </span>
                             </div>
@@ -303,12 +329,11 @@
                             <p class="mt-2 text-sm text-muted-foreground">{{ $vehicle['body'] }}</p>
                             <a
                                 href="{{ route('book-tour') }}"
-                                class="mt-5 inline-flex items-center text-sm font-semibold text-primary transition hover:gap-2"
+                                class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition hover:gap-2"
                             >
+                                <x-site.icon name="calendar" class="h-4 w-4" />
                                 Book this vehicle
-                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                                </svg>
+                                <x-site.icon name="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1" />
                             </a>
                         </div>
                     </article>
@@ -355,17 +380,22 @@
 
                 <div class="space-y-4">
                     @foreach ([
-                        ['title' => 'Phone / WhatsApp', 'details' => [config('richman.phone')], 'subtitle' => 'Fastest way to confirm a ride'],
-                        ['title' => 'Email', 'details' => config('richman.emails'), 'subtitle' => 'Quotes and booking details'],
-                        ['title' => 'Base', 'details' => [config('richman.location'), config('richman.location_detail')], 'subtitle' => 'Pickups across Nairobi'],
-                        ['title' => 'Hours', 'details' => ['Open 24 hours', 'Advance booking preferred'], 'subtitle' => 'Early mornings & late flights welcome'],
+                        ['title' => 'Phone / WhatsApp', 'icon' => 'phone', 'details' => [config('richman.phone')], 'subtitle' => 'Fastest way to confirm a ride'],
+                        ['title' => 'Email', 'icon' => 'mail', 'details' => config('richman.emails'), 'subtitle' => 'Quotes and booking details'],
+                        ['title' => 'Base', 'icon' => 'map-pin', 'details' => [config('richman.location'), config('richman.location_detail')], 'subtitle' => 'Pickups across Nairobi'],
+                        ['title' => 'Hours', 'icon' => 'clock', 'details' => ['Open 24 hours', 'Advance booking preferred'], 'subtitle' => 'Early mornings & late flights welcome'],
                     ] as $i => $info)
                         <div
                             class="rounded-xl border border-border/50 bg-card p-5 shadow-sm transition-all duration-700 ease-out hover:-translate-y-1 hover:border-primary/30 hover:shadow-md"
                             style="transition-delay: {{ 150 + ($i * 100) }}ms"
                             :class="shown ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'"
                         >
-                            <h3 class="text-lg font-semibold text-foreground">{{ $info['title'] }}</h3>
+                            <h3 class="inline-flex items-center gap-2 text-lg font-semibold text-foreground">
+                                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">
+                                    <x-site.icon :name="$info['icon']" class="h-4 w-4" />
+                                </span>
+                                {{ $info['title'] }}
+                            </h3>
                             @foreach ($info['details'] as $detail)
                                 <p class="mt-1 text-foreground/90">{{ $detail }}</p>
                             @endforeach

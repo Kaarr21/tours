@@ -4,8 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ $title ?? 'City Cab and Taxi Services - Chauffeur-Driven Transport in Nairobi' }}</title>
-    <meta name="description" content="{{ $description ?? 'City Cab and Taxi Services — chauffeur-driven transport, airport transfers, corporate leasing, excursions, country-wide travel, safaris, and VIP transport. Open 24 hours.' }}">
+    <x-seo-head
+        :title="$seoTitle ?? $title ?? null"
+        :description="$seoDescription ?? $description ?? null"
+        :canonical="$canonicalUrl ?? null"
+        :robots="$robotsDirective ?? null"
+        :image="$seoImage ?? null"
+    />
     <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
     <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
     <link rel="icon" href="{{ asset('favicon-32x32.png') }}" type="image/png" sizes="32x32">
@@ -16,6 +21,8 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700&display=swap" rel="stylesheet" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
+    <x-business-schema />
+    {{ $head ?? '' }}
 </head>
 <body class="font-sans antialiased min-h-screen flex flex-col">
     <x-site.nav />
@@ -26,12 +33,14 @@
 
     <x-site.footer />
 
+    <x-site.whatsapp-button float label="Chat on WhatsApp" />
+
     @if (session('success'))
         <div
             x-data="{ show: true }"
             x-show="show"
             x-init="setTimeout(() => show = false, 5000)"
-            class="fixed bottom-6 right-6 z-50 max-w-sm rounded-lg bg-safari-earth px-4 py-3 text-sm text-white shadow-lg"
+            class="fixed bottom-24 right-5 z-50 max-w-sm rounded-lg bg-safari-earth px-4 py-3 text-sm text-white shadow-lg sm:right-6"
         >
             {{ session('success') }}
         </div>
