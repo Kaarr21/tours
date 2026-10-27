@@ -2,7 +2,7 @@
 
 $primaryEmail = env('RICHMAN_EMAIL', 'richkaroki@gmail.com');
 $altEmail = env('RICHMAN_EMAIL_ALT', 'richmantours2024@gmail.com');
-$phoneDisplay = env('RICHMAN_PHONE', '0720912561');
+$phoneDisplay = env('RICHMAN_PHONE', '+254184491402');
 
 $parseEmails = static function (?string $value): array {
     return collect(explode(',', (string) $value))
